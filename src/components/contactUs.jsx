@@ -1,7 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 
 const ContactUs = () => {
+  const form = useRef();
+
   const [myData, setmyData] = useState({
     fullName: "",
     mail: "",
@@ -14,6 +18,23 @@ const ContactUs = () => {
     setmyData({ ...myData, [e.target.name]: e.target.value });
   };
 
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    try {
+      await emailjs.sendForm(
+        "service_x11nz0r",
+        "template_r8t4mxk",
+        form.current,
+        "-G-4mQwUEY5HmF9QG"
+      );
+
+      console.log("email sent successfully");
+      form.current.reset();
+    } catch (error) {
+      console.log("email sending failed", error);
+    }
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const newContact = {
@@ -21,6 +42,8 @@ const ContactUs = () => {
       mail: email,
       Message: Message,
     };
+    await sendEmail(e);
+
     // await axios.post("http://localhost:5000/contactus", newContact);
     console.log(newContact);
     // const config = {
@@ -42,7 +65,7 @@ const ContactUs = () => {
 
   return (
     <>
-    <form className="contact-form">
+    <form className="contact-form"   ref={form} onSubmit={onSubmit}>
       <input
         type="text"
         name="fullName"
