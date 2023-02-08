@@ -1021,6 +1021,7 @@ body {
     grid-gap: 20px;
     padding: 20px;
     border: 4px solid #747474;
+    min-height: 100vh;
   }
 
   .grid-item {
