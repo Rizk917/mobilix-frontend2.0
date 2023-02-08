@@ -42,7 +42,7 @@ const ContactUs = () => {
 
   return (
     <>
-    <form className="contact-form">
+    <form className="contact-form" encType="multipart/form-data">
       <input
         type="text"
         name="fullName"
