@@ -46,24 +46,6 @@ function AdminContactUs() {
                 <td>{user.mail}</td>
                 <td>{user.Message}</td>
 
-
-
-                {/* <td>
-                  <span>Index </span> 
-                </td>
-                <td>
-                  <span>Name: </span>
-                  {user.fullName}
-                </td>
-                <td>
-                  <span>Email: </span>
-                  {user.mail}
-                </td>
-                <td className="divv">
-                  <span>Message: </span>
-                  {user.Message}
-                </td> */}
-
                 <td>
                   <button
                     className="tbl-btn"
