@@ -42,21 +42,9 @@ function AdminContactUs() {
             {users.map((user, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>
-                  <span>Index </span> {index}
-                </td>
-                <td>
-                  <span>Name: </span>
-                  {user.fullName}
-                </td>
-                <td>
-                  <span>Email: </span>
-                  {user.mail}
-                </td>
-                <td className="divv">
-                  <span>Message: </span>
-                  {user.Message}
-                </td>
+                <td>{user.fullName}</td>
+                <td>{user.mail}</td>
+                <td>{user.Message}</td>
 
                 <td>
                   <button

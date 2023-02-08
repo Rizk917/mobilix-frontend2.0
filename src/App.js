@@ -13,7 +13,7 @@ import Adminarticle from "./components/adminPages/adminArticle";
 import AdminPhonedata from "./components/adminPages/adminPhones";
 import AdminContactUs from "./components/adminPages/contactUsadmin";
 import CntctusExt from "./components/ContactusExt";
-
+import PhoneDetails from "./components/PhoneDetails";
 function App() {
 
   return (
@@ -30,6 +30,7 @@ function App() {
       <Route path="/Adminarticle" element={<Adminarticle />}></Route>
       <Route path="/AdminContactUs" element={<AdminContactUs />}></Route>
       <Route path="/AdminPhonedata" element={<AdminPhonedata />}></Route>
+      <Route path="/phones/:id" element={<PhoneDetails />}></Route>
     </Routes>
   </BrowserRouter>
   <LgiPop />
