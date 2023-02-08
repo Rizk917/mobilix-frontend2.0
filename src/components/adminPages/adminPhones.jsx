@@ -105,112 +105,110 @@ const AdminPhonedata = () => {
 
   return (
     <>
-      <AdminNav />
-      <div className="content-table">
-        <h1>Phones</h1>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">index</th>
-              <th scope="col">phoneModel</th>
-              <th scope="col">display</th>
-              <th scope="col">camera</th>
-              <th scope="col">body</th>
-              <th scope="col">prodDate</th>
-            </tr>
-          </thead>
-          <tbody>
-            {phoness.map((phones, index) => (
-              <tr key={index}>
-                <th scope="row">{index + 1}</th>
-                <td>{phones.phoneModel}</td>
-                <td>{phones.display}</td>
-                <td>{phones.camera}</td>
-                <td>{phones.body}</td>
-                <td>{phones.prodDate}</td>
-                {/* <td>{phones.vendor}</td> */}
+      <div className="phn-data-wrapper">
+        <AdminNav />
+        <h1 className="khfi">Add New Phone</h1>
+        <div className="form-admin">
+          <form className="contact-formm" encType="multipart/form-data">
+            <input
+              type="text"
+              name="phoneModel"
+              value={phoneModel}
+              placeholder="Enter phoneModel"
+              onChange={onChange}
+              required
+            />
+            <input
+              type="text"
+              name="display"
+              value={display}
+              placeholder="Enter  display data"
+              onChange={onChange}
+              required
+            />
+            <input
+              type="text"
+              name="prodDate"
+              value={prodDate}
+              placeholder="Enter production Date"
+              onChange={onChange}
+              required
+            />
+            <input
+              type="text"
+              name="body"
+              value={body}
+              placeholder="enter body data"
+              onChange={onChange}
+              required
+            />
+            <input
+              type="text"
+              name="camera"
+              value={camera}
+              placeholder="Enter camera data "
+              onChange={onChange}
+              required
+            />
+            {" "}
+            <input
+              type="text"
+              name="vendor"
+              value={vendor}
+              placeholder="Enter The Vendor/Manifacturer"
+              onChange={onChange}
+              required
+            />
+            <input
+              type="file"
+              name="image"
+              // multiple
+              // accept="image/*"
 
-                <td>
-                  <button
-                    className="tbl-btn"
-                    onClick={() => deletephones(phones._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+              onChange={onChange}
+            />
+            <button className="button2" type="submit" onClick={onSubmit}>
+              Post
+            </button>
+          </form>
+        </div>
+        <div className="content-table">
+          <h1>Phones</h1>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">index</th>
+                <th scope="col">phoneModel</th>
+                <th scope="col">display</th>
+                <th scope="col">camera</th>
+                <th scope="col">body</th>
+                <th scope="col">prodDate</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {phoness.map((phones, index) => (
+                <tr key={index}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{phones.phoneModel}</td>
+                  <td>{phones.display}</td>
+                  <td>{phones.camera}</td>
+                  <td>{phones.body}</td>
+                  <td>{phones.prodDate}</td>
+                  {/* <td>{phones.vendor}</td> */}
 
-      <div className="form-admin">
-        <form className="contact-formm" encType="multipart/form-data">
-          <input
-            type="text"
-            name="phoneModel"
-            value={phoneModel}
-            placeholder="Enter phoneModel"
-            onChange={onChange}
-            required
-          />
-          <input
-            type="text"
-            name="display"
-            value={display}
-            placeholder="Enter  display data"
-            onChange={onChange}
-            required
-          />
-          <br />
-          <input
-            type="text"
-            name="prodDate"
-            value={prodDate}
-            placeholder="Enter production Date"
-            onChange={onChange}
-            required
-          />
-          <input
-            type="text"
-            name="body"
-            value={body}
-            placeholder="enter body data"
-            onChange={onChange}
-            required
-          />
-          <br />
-          <input
-            type="text"
-            name="camera"
-            value={camera}
-            placeholder="Enter camera data "
-            onChange={onChange}
-            required
-          />
-          <br />{" "}
-          <input
-            type="text"
-            name="vendor"
-            value={vendor}
-            placeholder="Enter The Vendor/Manifacturer"
-            onChange={onChange}
-            required
-          />
-          <br />
-          <input
-            type="file"
-            name="image"
-            // multiple
-            // accept="image/*"
-
-            onChange={onChange}
-          />
-          <br />
-          <button className="button2" type="submit" onClick={onSubmit}>
-            Post
-          </button>
-        </form>
+                  <td>
+                    <button
+                      className="tbl-btn"
+                      onClick={() => deletephones(phones._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

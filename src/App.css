@@ -1151,6 +1151,11 @@ body {
     margin: 0;
   }
 
+  .content-table {
+    display: flex;
+    flex-direction: column;
+  }
+
   .grid-item h3 {
     font-size: 3vw;
     text-align: center;
