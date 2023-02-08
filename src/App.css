@@ -1122,7 +1122,8 @@ body {
 
   .about_us,
   .cntct-us {
-    min-width: 400px;
+    /* min-width: 400px; */
+    width: 100%;
     margin: 0 auto;
     display: grid;
     background-color: #f7fdff;
