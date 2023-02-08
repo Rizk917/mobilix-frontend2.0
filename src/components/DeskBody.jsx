@@ -1,17 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function DeskBody(props) {
-    return <div className="main-home" onClick={() => props.setOpen(true)}>
-        <h1>Our latest <br></br>updates</h1>
-        <div className="updates">
-            <div className="item-1">
-                <a href="#"><div className="itm-1-after"><h3>Description:</h3><br></br><p>Hello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb Hello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb jHello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb jj</p></div></a>
+  //get phones
+  const [firstPhone, setFirstPhone] = useState({});
+  const [secondPhone, setSecondPhone] = useState({});
+
+  useEffect(() => {
+    loadPhones();
+  }, []);
+
+  const loadPhones = async () => {
+    const result = await axios.get("http://localhost:5000/phones");
+    setFirstPhone(result.data[0]);
+    setSecondPhone(result.data[1]);
+  };
+
+  return (
+    <div className="main-home" onClick={() => props.setOpen(true)}>
+      <h1>
+        Our latest <br></br>updates
+      </h1>
+      <div className="updates">
+        <div className="item-1">
+        <img className="item-1-i" src={`http://localhost:5000/${firstPhone.image}`} alt={firstPhone.phoneModels} />
+          <a href="#">
+            <div className="itm-1-after">
+              <h3>Description:</h3>
+              <br></br>
+              <p>
+                {firstPhone.phoneModel + ":"}
+                <br /> {"Device body: "+secondPhone.body}
+                <br /> {"Device vendor: "+secondPhone.vendor}
+                <br /> {"Device camera: "+secondPhone.camera}
+                <br /> {"Device memory: "+secondPhone.memory}
+                <br /> {"Device display: "+secondPhone.display}
+              </p>
             </div>
-            <div className="item-2">
-                <a href="#"><div className="itm-1-after"><h3>Description:</h3><br></br><p>Hello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb Hello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb jHello this is the description cbjscjbjxzbj bjbjxb jbxzjb bjb jbj bjzbj bjzb jzbj bjb jzjb zj bzjb jj</p></div></a>
-            </div>
+          </a>
         </div>
+        <div className="item-2">
+        <img className="item-1-i" src={`http://localhost:5000/${secondPhone.image}`} alt={secondPhone.phoneModels} />
+          <a href="#">
+            <div className="itm-1-after">
+              <h3>Description:</h3>
+              <br></br>
+              <p>
+              {firstPhone.phoneModel + ":"}
+                <br /> {"Device body: "+firstPhone.body}
+                <br /> {"Device vendor: "+firstPhone.vendor}
+                <br /> {"Device camera: "+firstPhone.camera}
+                <br /> {"Device memory: "+firstPhone.memory}
+                <br /> {"Device display: "+firstPhone.display}
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+  );
 }
 
 export default DeskBody;

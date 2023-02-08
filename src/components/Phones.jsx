@@ -57,5 +57,4 @@ export default PhonePage;
 function close() {
   let change = document.querySelector(".main-menu");
   change.classList.toggle("main-close")
-  console.log("AKAL")
 }
