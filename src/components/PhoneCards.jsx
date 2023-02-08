@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import PhoneDetails from './PhoneDetails';
+import DeskFooter from './deskfooter';
 
 function PhonePage(props) {
   const [phones, setPhones] = useState([]);
-
+  const [open, setOpen] = useState(true);
   useEffect(() => {
     loadphones();
   }, []);
