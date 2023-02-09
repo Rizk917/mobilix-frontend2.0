@@ -26,8 +26,26 @@ body {
     position: relative;
   }
 
+  .whity-btn {
+    text-decoration: none;
+    color: #000000;
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50px;
+    padding: 7px 20px;
+    border: 2px solid black;
+    transition: 0.2s;
+  }
+
+  .whity-btn:hover {
+    border: 2px solid black;
+    background-color: #1D86F5;
+    color: white;
+  }
+
   .details-div {
-    width: 60%;
+    width: 71%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -35,6 +53,15 @@ body {
     flex-direction: row;
     background-color: rgb(235, 235, 235);
     height: 100vh;
+    gap: 10px;
+  }
+
+  .detailed-img {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+    border: 4px dashed black;
+    outline: 4px solid #1D86F5;
   }
 
   .details-div>.desk-foot {
@@ -45,8 +72,14 @@ body {
   }
 
   .inform {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 46%;
     padding: 20px;
-    border: 3px dashed #1D86F5;
+    border: 4px dashed black;
+    outline: 4px solid #1D86F5;
+    font-size: 1.8vw;
   }
 
   .hiii {
@@ -1339,8 +1372,8 @@ body {
   .logo {
     margin: 0 auto;
     margin-top: 5px;
-    width: 95px;
-    height: 95px;
+    width: 145px;
+    height: 145px;
   }
 
   .search-icon {
@@ -1612,6 +1645,50 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
   }
 
+  .details-div {
+    padding: 5%;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30vh 66vh;
+    background: lightblue;
+    gap: 30px;
+  }
+
+  .whity-btn {
+    text-decoration: none;
+    color: #000000;
+    background-color: white;
+    width: fit-content;
+    border-radius: 20px;
+    padding: 7px 20px;
+    font-weight: bold;
+    border: 2px solid black;
+  }
+
+  .inform span {
+    font-weight: bold;
+  }
+
+  .detailed-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    margin-left: -4px;
+    border: 4px solid rgb(255, 255, 255);
+    outline: 4px solid black;
+  }
+
+  .inform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
