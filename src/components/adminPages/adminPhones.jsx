@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+// import { Link, useParams } from "react-router-dom";
 import AdminNav from "./adminNav";
 
 
@@ -84,7 +84,7 @@ const AdminPhonedata = () => {
 
   const [phoness, setphoness] = useState([]);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     loadphoness();
