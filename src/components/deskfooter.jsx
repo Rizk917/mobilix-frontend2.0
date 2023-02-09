@@ -6,7 +6,7 @@ function DeskFooter(props) {
 
     return <footer className="desk-foot" onClick={() => props.setOpen(true)}>
         <div className="deskwrap">
-            <img src={logo_F} loading={lazy} alt="logo" />
+            <img src={logo_F} alt="logo" />
             <div className="ELN">
                 <a href="#" className="left email">info@mobilix.com</a>
                 <a href="#" className="left location">Location</a>

@@ -14,7 +14,6 @@ function DeskHeader({ open, setOpen }) {
       <img
         src={logo}
         alt="logo"
-        loading={lazy}
         className="desk-header-logo"
         onClick={() => setOpen(true)}
       />
