@@ -22,14 +22,15 @@ function PhoneDetails(props) {
     <div className="phone-details">
       <DeskHeader open={open} setOpen={setOpen} />
       <div className='details-div'>
-        <img src={`http://localhost:5000/${phone.image}`} alt={phone.phoneModel} />
+        <img className="detailed-img" src={`http://localhost:5000/${phone.image}`} alt={phone.phoneModel} />
         <div className='inform'>
           <h3>{phone.phoneModel}</h3>
           <h3>{phone.vendor}</h3>
-          <p>description: {phone.description}</p>
-          <p>Camera: {phone.camera}</p>
-          <p>body: {phone.body}</p>
-          <p>Release date: {phone.prodDate}</p>
+          <p><span>description:</span> {phone.description}</p>
+          <p><span>Camera:</span> {phone.camera}</p>
+          <p><span>body:</span>{phone.body}</p>
+          <p><span>Release date:</span> {phone.prodDate}</p>
+          <a href="/phones" className='whity-btn'>Back</a>
         </div>
       </div>
       <DeskFooter setOpen={setOpen} />

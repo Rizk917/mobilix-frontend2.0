@@ -107,9 +107,9 @@ const AdminPhonedata = () => {
     <>
       <div className="phn-data-wrapper">
         <AdminNav />
-        <h1 className="khfi">Add New Phone</h1>
         <div className="form-admin">
           <form className="contact-formm" encType="multipart/form-data">
+            <h1>Add New Phone</h1>
             <input
               type="text"
               name="phoneModel"
@@ -167,7 +167,7 @@ const AdminPhonedata = () => {
 
               onChange={onChange}
             />
-            <button className="button2" type="submit" onClick={onSubmit}>
+            <button className="tbl-btnn" type="submit" onClick={onSubmit}>
               Post
             </button>
           </form>
