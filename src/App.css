@@ -1026,6 +1026,11 @@ body {
     min-height: 100vh;
   }
 
+  .grid-container a {
+    height: 100%;
+    width: 100%;
+  }
+
   .grid-container a:visited {
     color: #000000;
   }
@@ -1038,6 +1043,7 @@ body {
     border-radius: 30px;
     padding: 10px;
     transition: 0.2s;
+    height: 90%;
   }
 
   .grid-item:hover {
@@ -1052,7 +1058,7 @@ body {
 
   .grid-item img {
     width: 50%;
-    height: 50%;
+    height: 90%;
   }
 
   .hiii h4 {
