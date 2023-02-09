@@ -20,7 +20,7 @@ function PhonePage(props) {
   };
 
   return (
-    <div className="hiii">
+    <div className="hiii" onClick={() => props.setOpen(true)}>
       <h4>Your First Phones Page</h4>
       <div className="grid-container">
         {phones.map((phone) => (
