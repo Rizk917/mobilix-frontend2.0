@@ -12,8 +12,11 @@ function DeskBody(props) {
 
   const loadPhones = async () => {
     const result = await axios.get("http://localhost:5000/phones");
-    setFirstPhone(result.data[0]);
-    setSecondPhone(result.data[1]);
+    const sortedphones = result.data.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    setFirstPhone(sortedphones[0]);
+    setSecondPhone(sortedphones[1]);
   };
 
   return (
