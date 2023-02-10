@@ -99,14 +99,16 @@ const ContactUs = (props) => {
 
 
           <br />
-          <button className="form-sbmt" type="submit" onClick={onSubmit}>
-            submit
-          </button>
+          <div className="cntct-bck">
+            <a href="/">Back</a>
+            <button className="form-sbmt" type="submit" onClick={onSubmit}>
+              submit
+            </button>
+          </div>
+          <button className="form-sbmit" type="submit">Submit</button>
+
         </form>
         <h3 className="help">Send us a <br></br>message by filling <br></br>up this form</h3>
-        <div className="cntct-bck">
-          <a href="/">Back</a>
-        </div>
       </div>
     </>);
 };

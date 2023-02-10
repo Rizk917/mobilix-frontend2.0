@@ -26,35 +26,35 @@ function DeskBody(props) {
       </h1>
       <div className="updates">
         <div className="item-1">
-        <img className="item-1-i" src={`http://localhost:5000/${firstPhone.image}`} alt={firstPhone.phoneModels} />
-          <a href="#">
+          <img className="item-1-i" src={`http://localhost:5000/${firstPhone.image}`} alt={firstPhone.phoneModels} />
+          <a href="/news">
             <div className="itm-1-after">
               <h3>Description:</h3>
               <br></br>
               <p>
                 {firstPhone.phoneModel + ":"}
-                <br /> {"Device body: "+secondPhone.body}
-                <br /> {"Device vendor: "+secondPhone.vendor}
-                <br /> {"Device camera: "+secondPhone.camera}
-                <br /> {"Device memory: "+secondPhone.memory}
-                <br /> {"Device display: "+secondPhone.display}
+                <br /> {"Device body: " + secondPhone.body}
+                <br /> {"Device vendor: " + secondPhone.vendor}
+                <br /> {"Device camera: " + secondPhone.camera}
+                <br /> {"Device memory: " + secondPhone.memory}
+                <br /> {"Device display: " + secondPhone.display}
               </p>
             </div>
           </a>
         </div>
         <div className="item-2">
-        <img className="item-1-i" src={`http://localhost:5000/${secondPhone.image}`} alt={secondPhone.phoneModels} />
-          <a href="#">
+          <img className="item-1-i" src={`http://localhost:5000/${secondPhone.image}`} alt={secondPhone.phoneModels} />
+          <a href="/news">
             <div className="itm-1-after">
               <h3>Description:</h3>
               <br></br>
               <p>
-              {firstPhone.phoneModel + ":"}
-                <br /> {"Device body: "+firstPhone.body}
-                <br /> {"Device vendor: "+firstPhone.vendor}
-                <br /> {"Device camera: "+firstPhone.camera}
-                <br /> {"Device memory: "+firstPhone.memory}
-                <br /> {"Device display: "+firstPhone.display}
+                {firstPhone.phoneModel + ":"}
+                <br /> {"Device body: " + firstPhone.body}
+                <br /> {"Device vendor: " + firstPhone.vendor}
+                <br /> {"Device camera: " + firstPhone.camera}
+                <br /> {"Device memory: " + firstPhone.memory}
+                <br /> {"Device display: " + firstPhone.display}
               </p>
             </div>
           </a>
