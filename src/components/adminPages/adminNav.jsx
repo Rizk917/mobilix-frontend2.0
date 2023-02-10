@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './adminNav.css'
 import AdminContactUs from "./contactUsadmin";
+import { useNavigate } from 'react-router-dom';
 
 function AdminNav() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate('/');
+    }
+  }, []);
     const logOut = () => {
         window.location.href = "/";
 
