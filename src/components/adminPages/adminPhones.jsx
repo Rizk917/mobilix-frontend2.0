@@ -2,11 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState ,useRef} from "react";
 // import { Link, useParams } from "react-router-dom";
 import AdminNav from "./adminNav";
+import { useNavigate } from 'react-router-dom';
 
 const AdminPhonedata = () => {
   // const [formData, setFormData] = useState("");
   const form = useRef();
-
+  const navigate = useNavigate();
+ 
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate('/');
+    }
+  }, []);
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////ADD PHONES/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
   const onChange = (e) => {
     if(e.target.name == "image")
     setNewPhones({ ...newPhones, [e.target.name]: e.target.files[0] });
@@ -16,7 +26,6 @@ const AdminPhonedata = () => {
 
     
   };
-
 
   const [newPhones, setNewPhones] = useState("");
 
@@ -43,12 +52,10 @@ const AdminPhonedata = () => {
   };
 
 
-
-
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////LOAD PHONES/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
   const [phoness, setphoness] = useState([]);
-
-  // const { id } = useParams();
-
   useEffect(() => {
     loadphoness();
   }, []);
@@ -62,7 +69,9 @@ const AdminPhonedata = () => {
   
     
   };
-
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////DELETE PHONES/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
   const deletephones = async (id) => {
     await axios.delete(`https://mobilixbackend.onrender.com/phones/${id}`);
     loadphoness();
@@ -162,6 +171,7 @@ const AdminPhonedata = () => {
                 <th scope="col">camera</th>
                 <th scope="col">body</th>
                 <th scope="col">prodDate</th>
+                <th ></th>
               </tr>
             </thead>
             <tbody>
