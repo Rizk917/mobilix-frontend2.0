@@ -1,90 +1,51 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+// import { Link, useParams } from "react-router-dom";
 import AdminNav from "./adminNav";
 
-
 const AdminPhonedata = () => {
-  const [formData, setFormData] = useState({
-    phoneModel: "",
-    display: "",
-    image: "",
-    body: "",
-    camera: "",
-    vendor: "",
-    prodDate: "",
-  });
-  const { phoneModel, display, body, image, camera, vendor, prodDate } =
-    formData;
-  // console.log(formData.vendor);
+  const [formData, setFormData] = useState("");
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData)
+    if(e.target.name == "image")
+    setNewPhones({ ...newPhones, [e.target.name]: e.target.files[0] });
+    
+    else
+    setNewPhones({ ...newPhones, [e.target.name]: e.target.value });
+
+    
   };
 
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const newPhone = {
-  //     phoneModel: phoneModel,
-  //     display: display,
-  //     body: body,
-  //     image: image,
-  //     camera: camera,
-  //     vendor: vendor,
-  //     prodDate: prodDate,
-  //   };
 
-  //   try {
-  //     await axios.post("http://localhost:5000/phones", newPhone);
-  //     setFormData({
-  //       phoneModel: "",
-  //       display: "",
-  //       image: "",
-  //       body: "",
-  //       camera: "",
-  //       vendor: "",
-  //       prodDate: "",
-  //     });
-  //   } catch (err) {
-  //     console.log("error", err.response.data);
-  //   }
-  // };
+  const [newPhones, setNewPhones] = useState("");
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("phoneModel", phoneModel);
-    formData.append("display", display);
-    formData.append("body", body);
-    formData.append("image", image);
-    formData.append("camera", camera);
-    formData.append("vendor", vendor);
-    formData.append("prodDate", prodDate);
-    console.log({ formData })
+    let newData = new FormData();
+    newData = newPhones;
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
 
     try {
-      await axios.post("http://localhost:5000/phones", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      setFormData({
-        phoneModel: "",
-        display: "",
-        image: "",
-        body: "",
-        camera: "",
-        vendor: "",
-        prodDate: "",
-      });
+      const response = await axios.post(
+        "http://localhost:5000/phones",
+        newData,
+        config
+      );
+      console.log("response ", response);
     } catch (err) {
-      console.log("error", err.response.data);
+      console.log("error", err);
     }
   };
 
+
+
+
   const [phoness, setphoness] = useState([]);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     loadphoness();
@@ -107,13 +68,13 @@ const AdminPhonedata = () => {
     <>
       <div className="phn-data-wrapper">
         <AdminNav />
+        <h1 className="khfi">Add New Phone</h1>
         <div className="form-admin">
           <form className="contact-formm" encType="multipart/form-data">
-            <h1>Add New Phone</h1>
             <input
               type="text"
               name="phoneModel"
-              value={phoneModel}
+              // value={phoneModel}
               placeholder="Enter phoneModel"
               onChange={onChange}
               required
@@ -121,7 +82,7 @@ const AdminPhonedata = () => {
             <input
               type="text"
               name="display"
-              value={display}
+              // value={display}
               placeholder="Enter  display data"
               onChange={onChange}
               required
@@ -129,7 +90,7 @@ const AdminPhonedata = () => {
             <input
               type="text"
               name="prodDate"
-              value={prodDate}
+              // value={prodDate}
               placeholder="Enter production Date"
               onChange={onChange}
               required
@@ -137,7 +98,7 @@ const AdminPhonedata = () => {
             <input
               type="text"
               name="body"
-              value={body}
+              // value={body}
               placeholder="enter body data"
               onChange={onChange}
               required
@@ -145,16 +106,15 @@ const AdminPhonedata = () => {
             <input
               type="text"
               name="camera"
-              value={camera}
+              // value={camera}
               placeholder="Enter camera data "
               onChange={onChange}
               required
-            />
-            {" "}
+            />{" "}
             <input
               type="text"
               name="vendor"
-              value={vendor}
+              // value={vendor}
               placeholder="Enter The Vendor/Manifacturer"
               onChange={onChange}
               required
@@ -162,12 +122,11 @@ const AdminPhonedata = () => {
             <input
               type="file"
               name="image"
-              // multiple
-              // accept="image/*"
+              id="image"
 
               onChange={onChange}
             />
-            <button className="tbl-btnn" type="submit" onClick={onSubmit}>
+            <button className="button2" type="submit" onClick={onSubmit}>
               Post
             </button>
           </form>

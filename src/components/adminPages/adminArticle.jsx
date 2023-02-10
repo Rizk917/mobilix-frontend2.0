@@ -1,13 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import AdminNav from "./adminNav";
 
 
 const Adminarticle = () => {
-  const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
 
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate('/');
+    }
+  }, []);
   const { id } = useParams();
   useEffect(() => {
     LoadArticles();
