@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Home from "./main";
 
 const LogIn = () => {
     const [myData, setmyData] = useState({
@@ -77,12 +76,13 @@ const LogIn = () => {
                         <p className="errorr">{error}</p>
                     )}
                     <br />
-                    <a href="/" className="form-sbmt" type="submit">Submit</a>
+
+                    <div className="cntct-bck">
+                        <a href="/">Back</a>
+                        <button className="form-sbmt" type="submit">Submit</button>
+                    </div>
                 </form>
                 <h3 className="help">Send us a <br></br>message by filling <br></br>up this form</h3>
-                <div className="cntct-bck">
-                    <a href="/">Back</a>
-                </div>
             </div>
         </div>
     );

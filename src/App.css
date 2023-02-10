@@ -45,20 +45,20 @@ body {
   }
 
   .details-div {
-    width: 71%;
+    width: 70%;
     margin: 0 auto;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
     background-color: rgb(235, 235, 235);
     height: 100vh;
     gap: 10px;
+    grid-template-columns: 40% 55%;
   }
 
   .detailed-img {
     height: 50%;
-    width: 50%;
+    width: 100%;
     object-fit: contain;
     border: 4px dashed black;
     outline: 4px solid #1D86F5;
@@ -72,14 +72,27 @@ body {
   }
 
   .inform {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: grid;
+    gap: 13px;
     height: 46%;
     padding: 20px;
     border: 4px dashed black;
     outline: 4px solid #1D86F5;
     font-size: 1.8vw;
+    overflow: scroll;
+  }
+
+
+  .inform p:nth-child(3) {
+    height: 196px;
+    width: 400px;
+    overflow: scroll;
+    --webkit-scrollbar: none;
+  }
+
+  .inform p:nth-child(3)::-webkit-scrollbar,
+  .inform::-webkit-scrollbar {
+    width: 0;
   }
 
   .hiii {
@@ -232,8 +245,7 @@ body {
     font-size: 5vw;
   }
 
-  .help,
-  .cntct-bck {
+  .help {
     position: absolute;
     left: 7vw;
   }
@@ -252,7 +264,7 @@ body {
     transition: all 0.2s ease-in-out;
   }
 
-  .form-sbmt:hover {
+  .form-sbmit:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
@@ -264,14 +276,20 @@ body {
   }
 
   .cntct-bck {
-    height: 2.5rem;
-    width: 10rem;
-    position: relative;
-    left: -30vw;
-    margin-top: 100px;
-    background-color: white;
-    overflow: hidden;
+    display: none;
+  }
+
+  .form-sbmit {
+    text-decoration: none;
+    color: white;
+    background-color: #1D86F5;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 30px;
     border-radius: 7px;
+    border: none;
+    margin-top: -15px;
+    transition: all 0.2s ease-in-out;
   }
 
   #cntc-us {
@@ -556,7 +574,7 @@ body {
   }
 
   .item-1-i {
-    object-fit: cover;
+    object-fit: contain;
     position: absolute;
     mix-blend-mode: multiply;
     width: 100%;
@@ -822,7 +840,7 @@ body {
   .news-c {
     width: 100%;
     display: grid;
-    grid-template-columns: 35% 1fr;
+    grid-template-columns: 41vh 1fr;
     grid-template-rows: auto auto;
     align-items: center;
     grid-gap: 10px;
@@ -830,6 +848,8 @@ body {
 
   .news-c .p {
     align-self: baseline;
+    max-height: 600px;
+    overflow: scroll;
   }
 
   .main-new {
@@ -915,7 +935,7 @@ body {
     width: 33vh;
     height: 35vh;
     position: absolute;
-    margin-top: 30vh;
+    margin-top: 25vh;
     z-index: 5;
   }
 
@@ -988,7 +1008,7 @@ body {
     margin: 0;
     position: absolute;
     left: 20px;
-    bottom: 184px;
+    bottom: 118px;
     color: rgb(255, 255, 255);
   }
 
@@ -1338,7 +1358,6 @@ body {
     color: white;
     text-decoration: none;
     padding: 10px 30px;
-    margin: 0 auto;
     border-radius: 50px;
     border: none;
   }
@@ -1355,7 +1374,6 @@ body {
 
   .desktop-view,
   .help,
-  .cntct-bck,
   .about-us-2,
   .hiii h4 {
     display: none;
@@ -1372,8 +1390,8 @@ body {
   .logo {
     margin: 0 auto;
     margin-top: 5px;
-    width: 145px;
-    height: 145px;
+    width: 130px;
+    height: 165px;
   }
 
   .search-icon {
@@ -1425,7 +1443,7 @@ body {
     margin: 0 auto;
     margin-top: 45px;
     display: grid;
-    grid-template-columns: 80%;
+    grid-template-columns: 100%;
     width: 100%;
     height: 60vh;
     overflow: hidden;
@@ -1548,10 +1566,11 @@ body {
 
   .cards {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 110px 30px 10px;
-    overflow: scroll;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
   }
+
 
   h5 {
     margin: 0 auto;
@@ -1559,9 +1578,10 @@ body {
   }
 
   .p {
-    margin: 0 auto;
-    width: 73%;
+    width: 80%;
+    height: 110px;
     font-size: 12px;
+    overflow: scroll;
   }
 
 
@@ -1584,8 +1604,8 @@ body {
   .news-c {
     height: 100%;
     display: grid;
-    grid-template-columns: 30% 1fr;
-    grid-template-rows: minmax(5vh, auto);
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 15% 25%;
     background-color: #e7e7e7;
     border-radius: 7px;
     align-items: center;
@@ -1594,14 +1614,13 @@ body {
   .news-c img {
     object-fit: cover;
     width: 100%;
-    grid-row: 1/3;
     height: 100%;
   }
 
   .news-c h5,
   .news-c .p {
-    grid-column-start: 2;
     width: 95%;
+    margin: 0 auto;
   }
 
   .news-c .p {
@@ -1690,5 +1709,23 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .cntct-bck {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .cntct-bck a {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #1D86F5;
+    border: 1px solid #1D86F5;
+  }
+
+  .form-sbmit {
+    display: none;
   }
 }

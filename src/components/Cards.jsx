@@ -13,80 +13,43 @@ function Cards(props) {
 
   const loadPhones = async () => {
     const result = await axios.get("http://localhost:5000/phones");
-    setFirstPhone(result.data[0]);
-    setSecondPhone(result.data[1]);
+    const sortedphones = result.data.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    setFirstPhone(sortedphones[0]);
+    setSecondPhone(sortedphones[1]);
   };
 
   return (
     <div className="scroll-container" onClick={() => props.setShow(false)}>
       <div className=" card-1 cards">
-        <img src={ `http://localhost:5000/${firstPhone.image}`} className="logo" alt="logo"></img>
-        <h5> {firstPhone.phoneModel + ":"}</h5>
-        <p className="p">
-          <br /> {"Device body: " + secondPhone.body}
-          <br /> {"Device vendor: " + secondPhone.vendor}
-          <br /> {"Device camera: " + secondPhone.camera}
-          <br /> {"Device memory: " + secondPhone.memory}
-          <br /> {"Device display: " + secondPhone.display}
-        </p>
+        <img src={`http://localhost:5000/${firstPhone.image}`} className="logo" alt="logo"></img>
+        <div>
+          <h5> {firstPhone.phoneModel + ":"}</h5>
+          <p className="p">
+            <br /> {"Device body: " + firstPhone.body}
+            <br /> {"Device vendor: " + firstPhone.vendor}
+            <br /> {"Device camera: " + firstPhone.camera}
+            <br /> {"Device memory: " + firstPhone.memory}
+            <br /> {"Device display: " + firstPhone.display}
+          </p>
+        </div>
       </div>
       <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
-      </div>
-      <div className=" card-1 cards">
-        <img src={logo} className="logo" alt="logo"></img>
-        <h5>iPhone 13 Pro max</h5>
-        <p className="p">
-          ef attribute requires a valid value to be accessible. Provide a valid
-        </p>
+        <img src={`http://localhost:5000/${secondPhone.image}`} className="logo" alt="logo"></img>
+        <div>
+          <h5> {secondPhone.phoneModel + ":"}</h5>
+          <p className="p">
+            <br /> {"Device body: " + secondPhone.body}
+            <br /> {"Device vendor: " + secondPhone.vendor}
+            <br /> {"Device camera: " + secondPhone.camera}
+            <br /> {"Device memory: " + secondPhone.memory}
+            <br /> {"Device display: " + secondPhone.display}
+          </p>
+        </div>
       </div>
     </div>
+
   );
 }
 export default Cards;
