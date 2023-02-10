@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
@@ -9,17 +9,33 @@ import AdminNav from "./adminNav";
 const Adminarticle = () => {
   const navigate = useNavigate();
 
-  const [articles, setArticles] = useState([]);
+ 
   useEffect(() => {
     if (!localStorage.getItem('token')) {
       navigate('/');
     }
   }, []);
   const { id } = useParams();
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////LOAD ARTICLES/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     LoadArticles();
   }, []);
-
+  const [articles, setArticles] = useState([]);
   const LoadArticles = async () => {
     const result = await axios.get("https://mobilixbackend.onrender.com/news");
     const latest1 = result.data.sort((a, b) => {
@@ -27,73 +43,62 @@ const Adminarticle = () => {
     });
     setArticles(latest1);
   };
+  ////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////REMOVE ARTICLES//////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
   const deletearticles = async (id) => {
     await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
     LoadArticles();
   };
 
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    article: "",
-    date: "",
-    author: "",
-    image: "",
-  });
-  const { title, description, date, article, author, image } = formData;
-  // console.log(formData.image);
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////ADD ARTICLE////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+  const form = useRef();
+  const [article, setArticle] = useState("");
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if(e.target.name == "image")
+    setArticle({ ...article, [e.target.name]: e.target.files[0] });
+    
+    else
+    setArticle({ ...article, [e.target.name]: e.target.value });
+
+    
   };
 
-  const onSubmit = async (e) => {
+const onSubmit = async (e) => {
     e.preventDefault();
-    const newArticle = {
-      title: title,
-      description: description,
-      date: date,
-      article: article,
-      author: author,
-      image: image,
+    let newData = new FormData();
+    newData = article;
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
     };
-
-
-    const LoadArticles = async () => {
-      const result = await axios.get("https://mobilixbackend.onrender.com/news");
-      setArticles(result.data);
-    };
-    const deleteUser = async (id) => {
-      await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
-      LoadArticles();
-    };
-
-
 
     try {
-      await axios.post("https://mobilixbackend.onrender.com/cont/news", newArticle);
-      setFormData({
-        title: "",
-        description: "",
-        article: "",
-        date: "",
-        author: "",
-        image: "",
-      });
+      const response = await axios.post(
+        "https://mobilixbackend.onrender.com/news",
+        newData,
+        config
+      );
+      form.current.reset();
+      LoadArticles();
     } catch (err) {
-      console.log("error", err.response.data);
+      console.log("error", err);
     }
   };
-
+/////////////////////////////////////////////////////////////////////////////////
   return (
     <div className="container">
       <AdminNav />
-      <form className=" contact-formm ">
+      <form  ref={form}  className=" contact-formm ">
         <h1>Add a New Article</h1>
         <input
           type="text"
           name="title"
-          value={title}
+          // value={title}
           placeholder="Enter article title"
           onChange={onChange}
           required
@@ -101,7 +106,7 @@ const Adminarticle = () => {
         <input
           type="text"
           name="description"
-          value={description}
+          // value={description}
           placeholder="Enter article Description"
           onChange={onChange}
           required
@@ -110,7 +115,7 @@ const Adminarticle = () => {
         <input
           type="text"
           name="article"
-          value={article}
+          // value={article}
           placeholder="Body"
           onChange={onChange}
           required
@@ -118,7 +123,7 @@ const Adminarticle = () => {
         <input
           type="text"
           name="date"
-          value={date}
+          // value={date}
           placeholder="Date"
           onChange={onChange}
           required
@@ -127,7 +132,7 @@ const Adminarticle = () => {
         <input
           type="text"
           name="author"
-          value={author}
+          // value={author}
           placeholder="Enter your author "
           onChange={onChange}
           required
@@ -155,6 +160,8 @@ const Adminarticle = () => {
               <th scope="col">Article Title</th>
               <th scope="col">Author</th>
               <th scope="col">Date</th>
+              <th ></th>
+
             </tr>
           </thead>
           <tbody>
