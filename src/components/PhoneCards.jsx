@@ -12,7 +12,7 @@ function PhonePage(props) {
   }, []);
 
   const loadphones = async () => {
-    const result = await axios.get("http://localhost:5000/phones");
+    const result = await axios.get("https://mobilixbackend.onrender.com/phones");
     const sortedphones = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -27,7 +27,7 @@ function PhonePage(props) {
           <Link to={`/phones/${phone._id}`} key={phone._id}>
             <div className="grid-item">
               <h3>{phone.phoneModel}</h3>
-              <img src={`http://localhost:5000/${phone.image}`} alt={phone.phoneModels} />
+              <img src={`https://mobilixbackend.onrender.com/${phone.image}`} alt={phone.phoneModels} />
             </div>
           </Link>
         ))}

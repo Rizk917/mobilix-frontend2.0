@@ -14,7 +14,7 @@ function PhoneDetails(props) {
   }, []);
 
   const loadPhone = async () => {
-    const result = await axios.get(`http://localhost:5000/phones/${id}`);
+    const result = await axios.get(`https://mobilixbackend.onrender.com/phones/${id}`);
     setPhone(result.data);
   };
 
@@ -22,7 +22,7 @@ function PhoneDetails(props) {
     <div className="phone-details">
       <DeskHeader open={open} setOpen={setOpen} />
       <div className='details-div'>
-        <img className="detailed-img" src={`http://localhost:5000/${phone.image}`} alt={phone.phoneModel} />
+        <img className="detailed-img" src={`https://mobilixbackend.onrender.com/${phone.image}`} alt={phone.phoneModel} />
         <div className='inform'>
           <h3>{phone.phoneModel}</h3>
           <h3>{phone.vendor}</h3>

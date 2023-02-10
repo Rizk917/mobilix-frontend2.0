@@ -16,7 +16,7 @@ function NewsCards(props) {
   }, []);
 
   const loadarticles = async () => {
-    const result = await axios.get("http://localhost:5000/news");
+    const result = await axios.get("https://mobilixbackend.onrender.com/news");
     const sortedArticles = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -30,7 +30,7 @@ function NewsCards(props) {
     {/* <div className="news-c main-new"> */}
     {articles.map(article => (
       <div className='news-c main-new' key={article.id}>
-        <img src={`http://localhost:5000/${article.image}`} className="logo" alt={article.phoneModels}></img>
+        <img src={`https://mobilixbackend.onrender.com/${article.image}`} className="logo" alt={article.phoneModels}></img>
         <h5>{article.title}</h5>
         <p className="p">{article.article}</p>
 

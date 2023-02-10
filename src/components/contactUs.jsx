@@ -50,7 +50,7 @@ const ContactUs = (props) => {
     await sendEmail(e);
 
     try {
-      await axios.post("http://localhost:5000/contactus", newContact);
+      await axios.post("https://mobilixbackend.onrender.com/contactus", newContact);
       setmyData({
         fullName: "",
         email: "",
@@ -191,7 +191,7 @@ export default ContactUs;
 //     };
 //     await sendEmail(e);
 
-//     // await axios.post("http://localhost:5000/contactus", newContact);
+//     // await axios.post("https://mobilixbackend.onrender.com/contactus", newContact);
 //     console.log(newContact);
 //     // const config = {
 //     //   headers: {
@@ -199,7 +199,7 @@ export default ContactUs;
 //     //   },
 //     // };
 //     try {
-//       await axios.post("http://localhost:5000/contactus", newContact);
+//       await axios.post("https://mobilixbackend.onrender.com/contactus", newContact);
 //       setmyData({
 //         fullName: "",
 //         mail: "",

@@ -2,90 +2,93 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const LogIn = () => {
-    const [myData, setmyData] = useState({
-        fullName: "",
-        mail: "",
-        Message: "",
-    });
-    const { fullName, email, Message } = myData;
+  const [error, setError] = useState("");
 
-    const onChange = (e) => {
-        setmyData({ ...myData, [e.target.name]: e.target.value });
-    };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        const newContact = {
-            fullName: fullName,
-            mail: email,
-            Message: Message,
-        };
-        try {
-            await axios.post("http://localhost:5000/contactus", newContact);
-            setmyData({
-                fullName: "",
-                mail: "",
-                Message: "",
-            });
-        } catch (err) {
-            console.log("error", err.response.data);
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const [value, setValue, error, setError] = useState("");
+    if (!email) {
+      setError("Email is required");
+    } else if (!password) {
+      setError("Password is required");
+    } else {
+      fetch("https://mobilixbackend.onrender.com/user/login", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data, "userRegister");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (!fullName) {
-            setError("Full Name is required");
-        } else if (!email) {
-            setError("Email is required");
-        } else if (!Message) {
-            setError("Message is required");
-        } else {
-            setError("");
-        }
-    };
+          if ((data.status = 400)) {
+            {
+              setError("Incorrect credentials");
+            }
+          }
+          if ((data.status = 201)) {
+            alert("login successful");
+            window.localStorage.setItem("token", data.token);
+            window.localStorage.setItem("loggedIn", true);
 
-    return (
-        <div className="cnt-wrapper">
-            <div className="cntct-us" id="cntc-us">
-                <div className="div">
-                    <h1 className="H1">Log in</h1>
-                </div>
-                <form className="contact-form" onSubmit={handleSubmit}>
-                    <p className="chat">Let’s Talk, How can we help?</p>
-                    <input
-                        type="text"
-                        name="email"
-                        value={email}
-                        placeholder="Enter your email "
-                        onChange={onChange}
-                    />
-                    {error === "Email is required" && (
-                        <p className="errorr">{error}</p>
-                    )}
-                    <input
-                        type="password"
-                        name="fullName"
-                        value={fullName}
-                        placeholder="Enter your password"
-                        onChange={onChange}
-                    />
-                    {error === "Full Name is required" && (
-                        <p className="errorr">{error}</p>
-                    )}
-                    <br />
+            window.location.href = "/dashboard";
+          }
+        });
+    }
+  };
 
-                    <div className="cntct-bck">
-                        <a href="/">Back</a>
-                        <button className="form-sbmt" type="submit">Submit</button>
-                    </div>
-                </form>
-                <h3 className="help">Send us a <br></br>message by filling <br></br>up this form</h3>
-            </div>
+  return (
+    <div className="cnt-wrapper">
+      <div className="cntct-us" id="cntc-us">
+        <div className="div">
+          <h1 className="H1">Log in</h1>
         </div>
-    );
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <p className="chat">Let’s Talk, How can we help?</p>
+          <input
+                  type="text"
+                  name="email"
+                  value={email}
+                  placeholder="Your email"
+                  onChange={(e) => setEmail(e.target.value)}
+          />
+          {error === "Email is required" && <p className="errorr">{error}</p>}
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Your password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {error === "Password is required" && (
+            <p className="errorr">{error}</p>
+          )}
+          <br />
+
+          <div className="cntct-bck">
+            <a href="/">Back</a>
+            <button className="form-sbmt" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+        <h3 className="help">
+          Send us a <br></br>message by filling <br></br>up this form
+        </h3>
+      </div>
+    </div>
+  );
 };
 
 export default LogIn;

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import AdminNav from "./adminNav";
 
 const AdminPhonedata = () => {
-  const [formData, setFormData] = useState("");
+  // const [formData, setFormData] = useState("");
 
   const onChange = (e) => {
     if(e.target.name == "image")
@@ -30,7 +30,7 @@ const AdminPhonedata = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/phones",
+        "https://mobilixbackend.onrender.com/phones",
         newData,
         config
       );
@@ -52,7 +52,7 @@ const AdminPhonedata = () => {
   }, []);
 
   const loadphoness = async () => {
-    const result = await axios.get("http://localhost:5000/phones");
+    const result = await axios.get("https://mobilixbackend.onrender.com/phones");
     const sortedphones = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -60,7 +60,7 @@ const AdminPhonedata = () => {
   };
 
   const deletephones = async (id) => {
-    await axios.delete(`http://localhost:5000/phones/${id}`);
+    await axios.delete(`https://mobilixbackend.onrender.com/phones/${id}`);
     loadphoness();
   };
 
@@ -84,6 +84,14 @@ const AdminPhonedata = () => {
               name="display"
               // value={display}
               placeholder="Enter  display data"
+              onChange={onChange}
+              required
+            />
+                  <input
+              type="text"
+              name="memory"
+              // value={display}
+              placeholder="Enter memory size"
               onChange={onChange}
               required
             />
