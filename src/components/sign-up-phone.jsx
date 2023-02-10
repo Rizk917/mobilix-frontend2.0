@@ -39,7 +39,7 @@ const SignUpP = () => {
             password: password,
         };
         try {
-            await axios.post("http://localhost:5000/contactus", newContact);
+            await axios.post("https://mobilixbackend.onrender.com/contactus", newContact);
             setmyData({
                 fullName: "",
                 email: "",

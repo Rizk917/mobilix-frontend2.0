@@ -5,15 +5,25 @@ function Brands(props) {
     <h2>Popular brands</h2>
     <div className="brands-container">
       <div className="apple brands">
-        <a href="#" className="brand-link">Apple</a>
+        <a href="https://www.apple.com/" className="brand-link" onClick={sendLinksToNewWindow}>Apple</a>
       </div>
       <div className="samsung brands">
-        <a href="#" className="brand-link">Samsung</a>
+        <a href="https://www.samsung.com/lb/smartphones/galaxy-s23-ultra/?page=home" className="brand-link" onClick={sendLinksToNewWindow}>Samsung</a>
       </div>
       <div className="oppo brands">
-        <a href="#" className="brand-link">Oppo</a>
+        <a href="https://www.oppo.com/" className="brand-link" onClick={sendLinksToNewWindow}>Oppo</a>
       </div>
     </div>
   </div>
 }
 export default Brands;
+
+function sendLinksToNewWindow(event) {
+  if (!(event.target instanceof HTMLElement))
+    return;
+  const anchor = event.target.closest('a');
+  if (anchor !== null) {
+    anchor.target = '_blank';
+    anchor.rel = 'noopener';
+  }
+}

@@ -23,7 +23,7 @@ function PhonePage() {
   }, []);
 
   const loadphones = async () => {
-    const result = await axios.get("http://localhost:5000/phones");
+    const result = await axios.get("https://mobilixbackend.onrender.com/phones");
     const sortedphones = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -57,5 +57,4 @@ export default PhonePage;
 function close() {
   let change = document.querySelector(".main-menu");
   change.classList.toggle("main-close")
-  console.log("AKAL")
 }

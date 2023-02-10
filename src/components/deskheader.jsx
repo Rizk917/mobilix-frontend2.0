@@ -8,13 +8,15 @@ function DeskHeader({ open, setOpen }) {
   const handleOpen = () => {
     setOpen((prevState) => !prevState);
   };
-
+  const logOut = () => {
+    window.localStorage.clear();
+    window.location.href = "/";
+  };
   return (
     <header className="deskheader" open={open} setOpen={setOpen}>
       <img
         src={logo}
         alt="logo"
-        loading={lazy}
         className="desk-header-logo"
         onClick={() => setOpen(true)}
       />
@@ -43,8 +45,8 @@ function DeskHeader({ open, setOpen }) {
           {/* className={`align-b ${props.className}`} */}
           <div className="navbar">
             <a href="#" onClick={drop}>Log-in</a>
-            <a href="/" className="hidden">
-              Log-out
+            <a href="/" onClick={logOut} className="hidden">
+              Log-out 
             </a>
           </div>
         </div>

@@ -11,7 +11,6 @@ function Menu(props) {
         <div className="dark-pink">
             <div className="drk-pnk-div">
                 <a href="login" className="log-in btn-secondary">Log in</a>
-                <a href="signup" className="sign-up btn-secondary">Sign up</a>
                 <a href="/" className="log-out btn-secondary">Log out</a>
             </div>
         </div>
