@@ -21,14 +21,14 @@ const Adminarticle = () => {
   }, []);
 
   const LoadArticles = async () => {
-    const result = await axios.get("http://localhost:5000/news");
+    const result = await axios.get("https://mobilixbackend.onrender.com/news");
     const latest1 = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     setArticles(latest1);
   };
   const deletearticles = async (id) => {
-    await axios.delete(`http://localhost:5000/contactus/${id}`);
+    await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
     LoadArticles();
   };
 
@@ -60,18 +60,18 @@ const Adminarticle = () => {
 
 
     const LoadArticles = async () => {
-      const result = await axios.get("http://localhost:5000/news");
+      const result = await axios.get("https://mobilixbackend.onrender.com/news");
       setArticles(result.data);
     };
     const deleteUser = async (id) => {
-      await axios.delete(`http://localhost:5000/contactus/${id}`);
+      await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
       LoadArticles();
     };
 
 
 
     try {
-      await axios.post("http://localhost:5000/cont/news", newArticle);
+      await axios.post("https://mobilixbackend.onrender.com/cont/news", newArticle);
       setFormData({
         title: "",
         description: "",

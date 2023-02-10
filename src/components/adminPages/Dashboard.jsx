@@ -17,14 +17,14 @@ function Dashboard() {
     loadUsers();
   }, []);
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:5000/contactus");
+    const result = await axios.get("https://mobilixbackend.onrender.com/contactus");
     const latest1 = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     setUsers(latest1);
   };
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:5000/contactus/${id}`);
+    await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
     loadUsers();
   };
   return (

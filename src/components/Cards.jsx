@@ -12,7 +12,7 @@ function Cards(props) {
   }, []);
 
   const loadPhones = async () => {
-    const result = await axios.get("http://localhost:5000/phones");
+    const result = await axios.get("https://mobilixbackend.onrender.com/phones");
     const sortedphones = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -23,7 +23,7 @@ function Cards(props) {
   return (
     <div className="scroll-container" onClick={() => props.setShow(false)}>
       <div className=" card-1 cards">
-        <img src={`http://localhost:5000/${firstPhone.image}`} className="logo" alt="logo"></img>
+        <img src={`https://mobilixbackend.onrender.com/${firstPhone.image}`} className="logo" alt="logo"></img>
         <div>
           <h5> {firstPhone.phoneModel + ":"}</h5>
           <p className="p">
@@ -36,7 +36,7 @@ function Cards(props) {
         </div>
       </div>
       <div className=" card-1 cards">
-        <img src={`http://localhost:5000/${secondPhone.image}`} className="logo" alt="logo"></img>
+        <img src={`https://mobilixbackend.onrender.com/${secondPhone.image}`} className="logo" alt="logo"></img>
         <div>
           <h5> {secondPhone.phoneModel + ":"}</h5>
           <p className="p">

@@ -15,7 +15,7 @@ const LgiPop = () => {
         } else if (!password) {
             setError("Password is required");
         } else {
-            fetch("http://localhost:5000/user/login", {
+            fetch("https://mobilixbackend.onrender.com/user/login", {
                 method: "POST",
                 crossDomain: true,
                 headers: {
