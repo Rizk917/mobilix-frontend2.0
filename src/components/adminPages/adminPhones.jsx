@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 // import { Link, useParams } from "react-router-dom";
 import AdminNav from "./adminNav";
 
 const AdminPhonedata = () => {
   // const [formData, setFormData] = useState("");
+  const form = useRef();
 
   const onChange = (e) => {
     if(e.target.name == "image")
@@ -34,7 +35,8 @@ const AdminPhonedata = () => {
         newData,
         config
       );
-      console.log("response ", response);
+      form.current.reset();
+      loadphoness();
     } catch (err) {
       console.log("error", err);
     }
@@ -57,6 +59,8 @@ const AdminPhonedata = () => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     setphoness(sortedphones);
+  
+    
   };
 
   const deletephones = async (id) => {
@@ -70,12 +74,20 @@ const AdminPhonedata = () => {
         <AdminNav />
         <h1 className="khfi">Add New Phone</h1>
         <div className="form-admin">
-          <form className="contact-formm" encType="multipart/form-data">
+          <form ref={form} className="contact-formm" encType="multipart/form-data">
             <input
               type="text"
               name="phoneModel"
               // value={phoneModel}
               placeholder="Enter phoneModel"
+              onChange={onChange}
+              required
+            />
+              <input
+              type="text"
+              name="description"
+              // value={display}
+              placeholder="Enter  description data"
               onChange={onChange}
               required
             />
