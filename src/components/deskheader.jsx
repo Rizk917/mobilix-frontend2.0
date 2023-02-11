@@ -1,7 +1,7 @@
 import React, { useState, lazy } from "react";
 import logo from "../images/logo_transparent.png";
 import bmenue from "../images/bmenu.png";
-import PhonePage from "./Phones";
+
 
 
 function DeskHeader({ open, setOpen }) {
@@ -24,7 +24,7 @@ function DeskHeader({ open, setOpen }) {
         <a href="/" className="side-element">
           Home
         </a>
-        <a href="/Phones"   className="side-element">
+        <a href="/Phones" className="side-element">
           Phones
         </a>
         <a href="/news" className="side-element">
