@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About_us.jsx";
 import Home from "./components/main";
 import NewsP from "./components/News-page";
@@ -11,27 +11,25 @@ import AdminContactUs from "./components/adminPages/contactUsadmin";
 import CntctusExt from "./components/ContactusExt";
 import PhoneDetails from "./components/PhoneDetails";
 import Dashboard from "./components/adminPages/Dashboard";
-function App() {
 
+function App() {
   return (
-    <>
-    {/* <BrowserRouter> */}
-    <Routes>
-      <Route exact path="/" element={<Home />}/>
-      <Route exact path="/aboutus" element={<About />}/>
-      <Route exact path="/contactus" element={<CntctusExt />}/>
-      <Route exact path="/news" element={<NewsP />}/>
-      <Route exact path="/dashboard" element={<Dashboard />}/>
-      <Route exact path="/login" element={<LogIn />}/>
-      <Route exact path="/Phones" element={<PhonePage />}/>
-      <Route exact path="/Adminarticle" element={<Adminarticle />}/>
-      <Route exact path="/AdminContactUs" element={<AdminContactUs />}/>
-      <Route exact path="/AdminPhonedata" element={<AdminPhonedata />}/>
-      <Route exact path="/phones/:id" element={<PhoneDetails />}/>
-    </Routes>
-  {/* </BrowserRouter> */}
-  <LgiPop />
-  </>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/aboutus" element={<About />} />
+        <Route exact path="/contactus" element={<CntctusExt />} />
+        <Route exact path="/news" element={<NewsP />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/login" element={<LogIn />} />
+        <Route exact path="/phones" element={<PhonePage />} />
+        <Route exact path="/adminarticle" element={<Adminarticle />} />
+        <Route exact path="/admincontactus" element={<AdminContactUs />} />
+        <Route exact path="/adminphonedata" element={<AdminPhonedata />} />
+        <Route exact path="/phones/:id" element={<PhoneDetails />} />
+      </Routes>
+      <LgiPop />
+    </BrowserRouter>
   );
 }
 
