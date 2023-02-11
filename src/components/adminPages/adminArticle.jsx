@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState ,useRef} from "react";
-import { Link, useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
 import AdminNav from "./adminNav";

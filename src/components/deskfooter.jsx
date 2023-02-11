@@ -1,6 +1,5 @@
 import React from "react";
 import logo_F from "../images/logo_transparent.png";
-import { lazy } from "react";
 
 function DeskFooter(props) {
 

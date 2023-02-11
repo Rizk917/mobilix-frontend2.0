@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 
 const LogIn = () => {
@@ -33,9 +32,9 @@ const LogIn = () => {
           console.log(data, "userRegister");
 
           if ((data.status = 400)) {
-            {
+            
               setError("Incorrect credentials");
-            }
+            
           }
           if ((data.status = 201)) {
             alert("login successful");
