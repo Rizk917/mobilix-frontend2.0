@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
     <Routes>
       <Route exact path="/" element={<Home />}/>
       <Route exact path="/aboutus" element={<About />}/>
@@ -29,7 +29,7 @@ function App() {
       <Route exact path="/AdminPhonedata" element={<AdminPhonedata />}/>
       <Route exact path="/phones/:id" element={<PhoneDetails />}/>
     </Routes>
-  </BrowserRouter>
+  {/* </BrowserRouter> */}
   <LgiPop />
   </>
   );
