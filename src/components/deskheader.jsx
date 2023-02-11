@@ -24,7 +24,7 @@ function DeskHeader({ open, setOpen }) {
         <a href="/" className="side-element">
           Home
         </a>
-        <a href="/Phones" onClick={<PhonePage/>}  className="side-element">
+        <a href="/Phones"   className="side-element">
           Phones
         </a>
         <a href="/news" className="side-element">
