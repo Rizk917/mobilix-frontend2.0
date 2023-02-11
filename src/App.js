@@ -17,17 +17,17 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<Home />}></Route>
-      <Route exact path="/aboutus" element={<About />}></Route>
-      <Route exact path="/contactus" element={<CntctusExt />}></Route>
-      <Route exact path="/news" element={<NewsP />}></Route>
-      <Route exact path="/dashboard" element={<Dashboard />}></Route>
-      <Route exact path="/login" element={<LogIn />}></Route>
-      <Route exact path="/Phones" element={<PhonePage />}></Route>
-      <Route exact path="/Adminarticle" element={<Adminarticle />}></Route>
-      <Route exact path="/AdminContactUs" element={<AdminContactUs />}></Route>
-      <Route exact path="/AdminPhonedata" element={<AdminPhonedata />}></Route>
-      <Route exact path="/phones/:id" element={<PhoneDetails />}></Route>
+      <Route exact path="/" element={<Home />}/>
+      <Route exact path="/aboutus" element={<About />}/>
+      <Route exact path="/contactus" element={<CntctusExt />}/>
+      <Route exact path="/news" element={<NewsP />}/>
+      <Route exact path="/dashboard" element={<Dashboard />}/>
+      <Route exact path="/login" element={<LogIn />}/>
+      <Route exact path="/Phones" element={<PhonePage />}/>
+      <Route exact path="/Adminarticle" element={<Adminarticle />}/>
+      <Route exact path="/AdminContactUs" element={<AdminContactUs />}/>
+      <Route exact path="/AdminPhonedata" element={<AdminPhonedata />}/>
+      <Route exact path="/phones/:id" element={<PhoneDetails />}/>
     </Routes>
   </BrowserRouter>
   <LgiPop />

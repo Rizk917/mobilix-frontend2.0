@@ -1,4 +1,4 @@
-{
+{ 
   "name": "mobilix",
   "version": "0.1.0",
   "private": true,
@@ -48,6 +48,5 @@
   "devDependencies": {
     "file-loader": "^6.2.0",
     "url-loader": "^4.1.1"
-  },
-  "homepage": "https://mobilix.netlify.app/"
+  }
 }
