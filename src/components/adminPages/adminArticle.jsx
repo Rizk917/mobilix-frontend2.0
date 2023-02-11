@@ -7,93 +7,157 @@ import AdminNav from "./adminNav";
 
 
 const Adminarticle = () => {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
  
-  useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      navigate('/');
-    }
-  }, []);
-  const { id } = useParams();
+//   useEffect(() => {
+//     if (!localStorage.getItem('token')) {
+//       navigate('/');
+//     }
+//   }, []);
+//   const { id } = useParams();
 
 
 
+//   ////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////LOAD ARTICLES/////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////////
+//   useEffect(() => {
+//     LoadArticles();
+//   }, []);
+//   const [articles, setArticles] = useState([]);
+//   const LoadArticles = async () => {
+//     const result = await axios.get("https://mobilixbackend.onrender.com/news");
+//     const latest1 = result.data.sort((a, b) => {
+//       return new Date(b.createdAt) - new Date(a.createdAt);
+//     });
+//     setArticles(latest1);
+//   };
+//   ////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////REMOVE ARTICLES//////////////////////
+// ////////////////////////////////////////////////////////////////////////////////////////
+//   const deletearticles = async (id) => {
+//     await axios.delete(`https://mobilixbackend.onrender.com/news/${id}`);
+//     LoadArticles();
+//   };
 
+// ////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////ADD ARTICLE////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////////
 
+//   const form = useRef();
+//   const [article, setArticle] = useState("");
 
-
-
-
-
-
-
-
-  ////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////LOAD ARTICLES/////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////
-  useEffect(() => {
-    LoadArticles();
-  }, []);
-  const [articles, setArticles] = useState([]);
-  const LoadArticles = async () => {
-    const result = await axios.get("https://mobilixbackend.onrender.com/news");
-    const latest1 = result.data.sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt);
-    });
-    setArticles(latest1);
-  };
-  ////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////REMOVE ARTICLES//////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
-  const deletearticles = async (id) => {
-    await axios.delete(`https://mobilixbackend.onrender.com/contactus/${id}`);
-    LoadArticles();
-  };
-
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////ADD ARTICLE////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////
-
-  const form = useRef();
-  const [article, setArticle] = useState("");
-
-  const onChange = (e) => {
-    if(e.target.name == "image")
-    setArticle({ ...article, [e.target.name]: e.target.files[0] });
+//   const onChange = (e) => {
+//     if(e.target.name == "image")
+//     setArticle({ ...article, [e.target.name]: e.target.files[0] });
     
-    else
-    setArticle({ ...article, [e.target.name]: e.target.value });
+//     else
+//     setArticle({ ...article, [e.target.name]: e.target.value });
 
     
-  };
+//   };
+
+// const onSubmit = async (e) => {
+//     e.preventDefault();
+//     let newData = new FormData();
+//     newData = article;
+
+//     const config = {
+//       headers: { "content-type": "multipart/form-data" },
+//     };
+
+//     try {
+//       console.log(newData)
+//       const response = await axios.post(
+//         "https://mobilixbackend.onrender.com/news",
+//         newData,
+//         config
+//       );
+//       form.current.reset();
+//       LoadArticles();
+//     } catch (err) {
+//       console.log("error", err);
+//     }
+//   };
+// ///////////////////////////////////////////////////////////////////////////////////
+const form = useRef();
+const navigate = useNavigate();
+
+useEffect(() => {
+  if (!localStorage.getItem('token')) {
+    navigate('/');
+  }
+}, []);
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////ADD Articles/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+const onChange = (e) => {
+  if(e.target.name == "image")
+  setNewArticles({ ...newArticles, [e.target.name]: e.target.files[0] });
+  
+  else
+  setNewArticles({ ...newArticles, [e.target.name]: e.target.value });
+
+  
+};
+
+const [newArticles, setNewArticles] = useState("");
 
 const onSubmit = async (e) => {
-    e.preventDefault();
-    let newData = new FormData();
-    newData = article;
+  e.preventDefault();
+  let newData = new FormData();
+  newData = newArticles;
 
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
-
-    try {
-      const response = await axios.post(
-        "https://mobilixbackend.onrender.com/news",
-        newData,
-        config
-      );
-      form.current.reset();
-      LoadArticles();
-    } catch (err) {
-      console.log("error", err);
-    }
+  const config = {
+    headers: { "content-type": "multipart/form-data" },
   };
+
+  try {
+    const response = await axios.post(
+      "https://mobilixbackend.onrender.com/news",
+      newData,
+      config
+    );
+    form.current.reset();
+    loadarticles();
+  } catch (err) {
+    console.log("error", err);
+  }
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////LOAD Articles/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+const [articles, setarticles] = useState([]);
+useEffect(() => {
+  loadarticles();
+}, []);
+
+const loadarticles = async () => {
+  const result = await axios.get("https://mobilixbackend.onrender.com/news");
+  const sortedArticles = result.data.sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+  setarticles(sortedArticles);
+
+  
+};
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////DELETE Articles/////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+const deleteArticles = async (id) => {
+  await axios.delete(`https://mobilixbackend.onrender.com/news/${id}`);
+  loadarticles();
+};
+
+
 /////////////////////////////////////////////////////////////////////////////////
   return (
     <div className="container">
       <AdminNav />
-      <form  ref={form}  className=" contact-formm ">
+      <form  ref={form} encType="multipart/form-data"  className=" contact-formm ">
         <h1>Add a New Article</h1>
         <input
           type="text"
@@ -141,6 +205,8 @@ const onSubmit = async (e) => {
         <input
           type="file"
           name="image"
+          id="image"
+
           // multiple
           // accept="image/*"
           onChange={onChange}
@@ -175,7 +241,7 @@ const onSubmit = async (e) => {
                 <td>
                   <button
                     className="tbl-btn"
-                    onClick={() => deletearticles(article._id)}
+                    onClick={() => deleteArticles(articless._id)}
                   >
                     Delete
                   </button>
