@@ -30,13 +30,14 @@ const LgiPop = () => {
               })
                 .then((res) => res.json())
                 .then((data) => {
+                  console.log(data, "userRegister");
                   
-                  if(data.status===400){
+                  if(data.status=400){
                     {
                         setError("Incorrect credentials")
                       }
                   }
-                  if ((data.status === 201)) {
+                  if ((data.status = 201)) {
                     alert("login successful");
                     window.localStorage.setItem("token", data.token);
                     window.localStorage.setItem("loggedIn", true);

@@ -11,7 +11,7 @@ import AdminContactUs from "./components/adminPages/contactUsadmin";
 import CntctusExt from "./components/ContactusExt";
 import PhoneDetails from "./components/PhoneDetails";
 import Dashboard from "./components/adminPages/Dashboard";
-
+import Error from "./components/error.jsx";
 function App() {
   return (
     <BrowserRouter >
@@ -27,6 +27,7 @@ function App() {
         <Route exact path="/admincontactus" element={<AdminContactUs />} />
         <Route exact path="/adminphonedata" element={<AdminPhonedata />} />
         <Route exact path="/phones/:id" element={<PhoneDetails />} />
+        <Route exact path="/*" element={<Error />} />
       </Routes>
       <LgiPop />
     </BrowserRouter>

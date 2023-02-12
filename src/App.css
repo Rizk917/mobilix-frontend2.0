@@ -40,7 +40,7 @@ body {
 
   .whity-btn:hover {
     border: 2px solid black;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     color: white;
   }
 
@@ -61,10 +61,10 @@ body {
     width: 100%;
     object-fit: contain;
     border: 4px dashed black;
-    outline: 4px solid #1D86F5;
+    outline: 4px solid #1d86f5;
   }
 
-  .details-div>.desk-foot {
+  .details-div > .desk-foot {
     width: 100%;
     height: 175px;
     display: flex;
@@ -77,11 +77,10 @@ body {
     height: 46%;
     padding: 20px;
     border: 4px dashed black;
-    outline: 4px solid #1D86F5;
+    outline: 4px solid #1d86f5;
     font-size: 1.8vw;
     overflow: scroll;
   }
-
 
   .inform p:nth-child(3) {
     height: 196px;
@@ -127,7 +126,7 @@ body {
 
   .fill-space {
     padding: 20px 80px;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     border-radius: 7px;
     text-decoration: none;
     color: white;
@@ -148,7 +147,14 @@ body {
     width: 260vh;
     height: 131vh;
     position: absolute;
-    background: linear-gradient(121.57deg, rgba(0, 124, 255, 0.75) 30.97%, rgba(0, 81, 167, 0.75) 38.6%, rgba(19, 54, 90, 0.75) 46.09%, rgba(0, 0, 0, 0.75) 66.86%, rgba(0, 0, 0, 0.75) 66.87%);
+    background: linear-gradient(
+      121.57deg,
+      rgba(0, 124, 255, 0.75) 30.97%,
+      rgba(0, 81, 167, 0.75) 38.6%,
+      rgba(19, 54, 90, 0.75) 46.09%,
+      rgba(0, 0, 0, 0.75) 66.86%,
+      rgba(0, 0, 0, 0.75) 66.87%
+    );
     background-blend-mode: darken;
     border-radius: 193px;
     transform: rotate(-37.92deg);
@@ -171,7 +177,11 @@ body {
   .cntct-us {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(90deg, rgba(0, 133, 255, 0.81) 50%, rgba(0, 0, 0, 0.81) 83.82%);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 133, 255, 0.81) 50%,
+      rgba(0, 0, 0, 0.81) 83.82%
+    );
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -195,7 +205,7 @@ body {
   .contact-form input,
   .contact-form textarea {
     resize: none;
-    caret-color: #1D86F5;
+    caret-color: #1d86f5;
     width: 80%;
     margin: 0 auto;
     height: 40px;
@@ -208,12 +218,12 @@ body {
 
   .contact-form input:focus,
   .contact-form textarea:focus {
-    border-bottom: 2px solid #1D86F5;
+    border-bottom: 2px solid #1d86f5;
   }
 
   .contact-form input:focus::placeholder,
   .contact-form textarea:focus::placeholder {
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .contact-form textarea {
@@ -250,11 +260,10 @@ body {
     left: 7vw;
   }
 
-
   .form-sbmt {
     text-decoration: none;
     color: white;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     font-size: 20px;
     font-weight: bold;
     padding: 10px 30px;
@@ -282,7 +291,7 @@ body {
   .form-sbmit {
     text-decoration: none;
     color: white;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     font-size: 20px;
     font-weight: bold;
     padding: 10px 30px;
@@ -311,10 +320,17 @@ body {
   }
 
   .cntct-bck::after {
-    content: '';
+    content: "";
     height: 100%;
     width: 100%;
-    background: linear-gradient(213deg, rgb(0 0 0 / 87%) 72.87%, rgba(0, 0, 0, 0.75) 65.86%, rgba(19, 54, 90, 0.75) 46.09%, rgba(0, 81, 167, 0.75) 38.6%, rgb(0 124 255 / 85%) 30.97%);
+    background: linear-gradient(
+      213deg,
+      rgb(0 0 0 / 87%) 72.87%,
+      rgba(0, 0, 0, 0.75) 65.86%,
+      rgba(19, 54, 90, 0.75) 46.09%,
+      rgba(0, 81, 167, 0.75) 38.6%,
+      rgb(0 124 255 / 85%) 30.97%
+    );
     position: absolute;
     background-blend-mode: darken;
     display: block;
@@ -386,10 +402,17 @@ body {
   }
 
   .Button::after {
-    content: '';
+    content: "";
     height: 100%;
     width: 100%;
-    background: linear-gradient(209deg, rgba(0, 0, 0, 0.75) 72.87%, rgba(0, 0, 0, 0.75) 65.86%, rgba(19, 54, 90, 0.75) 46.09%, rgba(0, 81, 167, 0.75) 38.6%, rgb(0 124 255 / 85%) 30.97%);
+    background: linear-gradient(
+      209deg,
+      rgba(0, 0, 0, 0.75) 72.87%,
+      rgba(0, 0, 0, 0.75) 65.86%,
+      rgba(19, 54, 90, 0.75) 46.09%,
+      rgba(0, 81, 167, 0.75) 38.6%,
+      rgb(0 124 255 / 85%) 30.97%
+    );
     position: absolute;
     background-blend-mode: darken;
     display: block;
@@ -415,7 +438,7 @@ body {
     grid-template-rows: 97px;
     justify-content: center;
     align-items: center;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
     position: sticky;
     top: 0px;
     z-index: 4;
@@ -454,7 +477,6 @@ body {
     display: none;
   }
 
-
   .burger-rotate {
     transition: 0.4s ease;
     transform: rotate(-90deg);
@@ -465,13 +487,11 @@ body {
     width: 70%;
     height: 40px;
     margin-left: 10px;
-    background-color: #FFF5F9;
+    background-color: #fff5f9;
     border: none;
     outline: none;
     font-size: 20px;
   }
-
-
 
   .search-icons {
     grid-column-start: 2;
@@ -534,7 +554,7 @@ body {
   }
 
   .sidebar-child a:hover {
-    color: #1D86F5;
+    color: #1d86f5;
     margin-top: -6px;
     text-decoration: underline;
   }
@@ -553,7 +573,7 @@ body {
     padding-bottom: 22px;
     font-size: 25px;
     font-weight: bold;
-    color: #ED5485;
+    color: #ed5485;
     text-decoration: none;
   }
 
@@ -593,7 +613,7 @@ body {
 
   .itm-1-after {
     color: white;
-    content: 'HELLO WORLD';
+    content: "HELLO WORLD";
     font-size: 18px;
     font-weight: bold;
     display: flex;
@@ -613,7 +633,6 @@ body {
     width: 80%;
     overflow: scroll;
   }
-
 
   .itm-1-after p::-webkit-scrollbar {
     display: none;
@@ -667,9 +686,8 @@ body {
     text-decoration: underline;
   }
 
-
   .email::before {
-    content: '';
+    content: "";
     display: block;
     height: 20px;
     width: 20px;
@@ -680,7 +698,7 @@ body {
   }
 
   .location::before {
-    content: '';
+    content: "";
     display: block;
     height: 20px;
     width: 20px;
@@ -691,7 +709,7 @@ body {
   }
 
   .number::before {
-    content: '';
+    content: "";
     display: block;
     height: 20px;
     width: 20px;
@@ -749,12 +767,12 @@ body {
     flex-grow: 0;
     transition: flex-grow 0.3s;
     overflow: hidden;
-    border: 1px solid #1D86F5;
+    border: 1px solid #1d86f5;
   }
 
   .align-b a {
     text-decoration: none;
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .align-b-down {
@@ -766,7 +784,7 @@ body {
     flex-grow: 1;
     transition: flex-grow 0.3s;
     overflow: hidden;
-    border: 1px solid #1D86F5;
+    border: 1px solid #1d86f5;
   }
 
   .align-b p {
@@ -799,17 +817,17 @@ body {
 
   .navbar a:hover {
     text-decoration: underline;
-    color: #1D86F5;
-    border-bottom: 1px solid #1D86F5;
+    color: #1d86f5;
+    border-bottom: 1px solid #1d86f5;
   }
 
   .navbar:hover {
     background-color: rgb(251, 253, 255);
-    border: 1px solid #1D86F5;
+    border: 1px solid #1d86f5;
   }
 
   .drop:focus {
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .nav-dropdown {
@@ -830,7 +848,7 @@ body {
     grid-column: 1/3;
     grid-row: 2;
     border: 3px solid #2196f3;
-    background: #F1F1F1;
+    background: #f1f1f1;
   }
 
   .news-c:first-child {
@@ -922,8 +940,8 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: #6285FF;
-    box-shadow: 0px 0px 85px #FFFFFF;
+    background: #6285ff;
+    box-shadow: 0px 0px 85px #ffffff;
     border-radius: 13px;
   }
 
@@ -952,7 +970,7 @@ body {
   }
 
   .login-form input {
-    background: #00475E;
+    background: #00475e;
     caret-color: #ffffff;
     width: 30vh;
     color: white;
@@ -970,7 +988,6 @@ body {
     color: white;
     /* padding-left: 20px; */
   }
-
 
   .login-form .errorr {
     font-size: 13px;
@@ -1020,7 +1037,7 @@ body {
     margin-top: 50px;
     font-size: 22px;
     font-weight: bold;
-    color: #1D86F5;
+    color: #1d86f5;
     cursor: pointer;
   }
 
@@ -1047,10 +1064,10 @@ body {
   }
 
   .circle-lg-1::before {
-    content: 'Log in';
+    content: "Log in";
     display: block;
     position: absolute;
-    color: #1D86F5;
+    color: #1d86f5;
     font-size: 33px;
     font-weight: bold;
     bottom: 78px;
@@ -1058,10 +1075,10 @@ body {
   }
 
   .circle-lg-3::before {
-    content: 'Sign up';
+    content: "Sign up";
     display: block;
     position: absolute;
-    color: #1D86F5;
+    color: #1d86f5;
     font-size: 33px;
     font-weight: bold;
     bottom: 78px;
@@ -1076,7 +1093,7 @@ body {
     grid-gap: 20px;
     padding: 20px;
     border: 4px solid #747474;
-    min-height: 80vh
+    min-height: 80vh;
   }
 
   .grid-container a {
@@ -1117,7 +1134,6 @@ body {
   .hiii h4 {
     font-size: 30px;
   }
-
 }
 
 @media all and (min-width: 2050px) {
@@ -1142,7 +1158,6 @@ body {
     font-size: 1.8rem;
   }
 
-
   .linear {
     transition: 0.2s;
     left: -25vh;
@@ -1164,7 +1179,14 @@ body {
     width: 246vh;
     height: 167vh;
     position: absolute;
-    background: linear-gradient(121.57deg, rgba(0, 124, 255, 0.75) 30.97%, rgba(0, 81, 167, 0.75) 38.6%, rgba(19, 54, 90, 0.75) 46.09%, rgba(0, 0, 0, 0.75) 66.86%, rgba(0, 0, 0, 0.75) 66.87%);
+    background: linear-gradient(
+      121.57deg,
+      rgba(0, 124, 255, 0.75) 30.97%,
+      rgba(0, 81, 167, 0.75) 38.6%,
+      rgba(19, 54, 90, 0.75) 46.09%,
+      rgba(0, 0, 0, 0.75) 66.86%,
+      rgba(0, 0, 0, 0.75) 66.87%
+    );
     background-blend-mode: darken;
     border-radius: 193px;
     transform: rotate(-37.92deg);
@@ -1185,16 +1207,21 @@ body {
     width: 246vh;
     height: 167vh;
     position: absolute;
-    background: linear-gradient(121.57deg, rgba(0, 124, 255, 0.75) 30.97%, rgba(0, 81, 167, 0.75) 38.6%, rgba(19, 54, 90, 0.75) 46.09%, rgba(0, 0, 0, 0.75) 66.86%, rgba(0, 0, 0, 0.75) 66.87%);
+    background: linear-gradient(
+      121.57deg,
+      rgba(0, 124, 255, 0.75) 30.97%,
+      rgba(0, 81, 167, 0.75) 38.6%,
+      rgba(19, 54, 90, 0.75) 46.09%,
+      rgba(0, 0, 0, 0.75) 66.86%,
+      rgba(0, 0, 0, 0.75) 66.87%
+    );
     background-blend-mode: darken;
     border-radius: 193px;
     transform: rotate(-37.92deg);
   }
 }
 
-
-@media all and (max-width:700px) {
-
+@media all and (max-width: 700px) {
   /* .main-container {
     width: 80%;
     display: grid;
@@ -1244,7 +1271,7 @@ body {
   .div {
     width: 100%;
     height: 100%;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     display: flex;
     align-items: center;
     position: relative;
@@ -1253,7 +1280,7 @@ body {
 
   .div::before,
   .div::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 205px;
     height: 205px;
@@ -1265,7 +1292,7 @@ body {
     left: -2px;
     bottom: -81px;
     z-index: -1;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
   }
 
   .div::before {
@@ -1283,7 +1310,7 @@ body {
   .H3 {
     width: 85%;
     margin: 0 auto;
-    color: #1D86F5;
+    color: #1d86f5;
     line-height: 28px;
     font-style: italic;
     margin: 0 auto;
@@ -1292,7 +1319,7 @@ body {
   .button2 {
     margin: 0 auto;
     padding: 10px 30px;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     border-radius: 50px;
     text-transform: uppercase;
     text-decoration: none;
@@ -1314,7 +1341,7 @@ body {
 
   .hfb a {
     padding: 7px 30px;
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     border-radius: 50px;
     text-decoration: none;
     color: white;
@@ -1332,13 +1359,13 @@ body {
 
   .contact-form input,
   .contact-form textarea {
-    caret-color: #1D86F5;
+    caret-color: #1d86f5;
     border: none;
     border-bottom: 1px solid gray;
     background-color: transparent;
     outline: none;
     height: 30px;
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .errorr {
@@ -1354,7 +1381,7 @@ body {
   }
 
   .form-sbmt {
-    background-color: #1D86F5;
+    background-color: #1d86f5;
     color: white;
     text-decoration: none;
     padding: 10px 30px;
@@ -1364,12 +1391,12 @@ body {
 
   .contact-form input:focus,
   .contact-form textarea:focus {
-    border-bottom: 2px solid #1D86F5;
+    border-bottom: 2px solid #1d86f5;
   }
 
   .contact-form input:focus::placeholder,
   .contact-form textarea:focus::placeholder {
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .desktop-view,
@@ -1421,14 +1448,14 @@ body {
     font-weight: bold;
     padding: 8px 10px;
     border-radius: 7px;
-    border: 1px solid #1D86F5;
+    border: 1px solid #1d86f5;
     box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.47);
     border-radius: 5px;
   }
 
   .brand-link {
     text-decoration: none;
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .App-header {
@@ -1456,20 +1483,19 @@ body {
   .cards {
     height: 200px;
     border-radius: 20px;
-    background: #F1F1F1;
+    background: #f1f1f1;
   }
 
   footer {
     width: 100%;
     height: 12vh;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
     position: fixed;
     bottom: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
   }
 
   img {
@@ -1484,12 +1510,12 @@ body {
   }
 
   .mobilix {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-size: 38px;
     color: #ffffff;
     margin: 0 auto;
     margin-top: 20px;
-    -webkit-text-stroke: 2px #1D86F5;
+    -webkit-text-stroke: 2px #1d86f5;
   }
 
   .main-menu {
@@ -1500,7 +1526,6 @@ body {
     flex-direction: column;
     width: 220px;
     height: 100%;
-
   }
 
   .main-open {
@@ -1519,7 +1544,7 @@ body {
     grid-template-rows: 50% 50px 50px 50px;
     width: 100%;
     height: 50%;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
   }
 
   .btn {
@@ -1531,7 +1556,7 @@ body {
   }
 
   .btn:hover {
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .dark-pink {
@@ -1539,7 +1564,7 @@ body {
     flex-direction: column;
     width: 100%;
     height: 50%;
-    background-color: #80BEFF;
+    background-color: #80beff;
   }
 
   .drk-pnk-div {
@@ -1571,10 +1596,9 @@ body {
     align-items: center;
   }
 
-
   h5 {
     margin: 0 auto;
-    color: #1D86F5;
+    color: #1d86f5;
   }
 
   .p {
@@ -1583,7 +1607,6 @@ body {
     font-size: 12px;
     overflow: scroll;
   }
-
 
   .chat {
     display: none;
@@ -1721,11 +1744,35 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
-    color: #1D86F5;
-    border: 1px solid #1D86F5;
+    color: #1d86f5;
+    border: 1px solid #1d86f5;
   }
 
   .form-sbmit {
     display: none;
   }
+}
+/* ERROR PAGE */
+
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+
+
+
+
+.error-1 {
+	height: 100vh;
+	font-family: "Montserrat", "sans-serif";
+	font-weight: bolder;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+.error-2{
+  color: black;
+
 }
