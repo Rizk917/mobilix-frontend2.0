@@ -14,7 +14,7 @@ import Dashboard from "./components/adminPages/Dashboard";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter >
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/aboutus" element={<About />} />
