@@ -113,6 +113,22 @@ body {
   .main-home h1 {
     font-size: 6vw;
     padding-left: 50px;
+    position: relative;
+  }
+
+
+  .main-home h1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 75vh;
+    max-width: 55vw;
+    height: 30vw;
+    border-radius: 50%;
+    background-color: #2196f3;
+    z-index: -1;
+    top: -9vw;
+    left: -100px;
   }
 
   .sign-up-wrapper {
@@ -586,7 +602,7 @@ body {
   }
 
   .item-1-i {
-    object-fit: contain;
+    object-fit: cover;
     position: absolute;
     mix-blend-mode: multiply;
     width: 100%;
@@ -1408,7 +1424,8 @@ body {
     margin: 0 auto;
     margin-top: 5px;
     width: 130px;
-    height: 165px;
+    height: 185px;
+    object-fit: cover;
   }
 
   .search-icon {
