@@ -507,8 +507,9 @@
 
   .button2 {
     padding: 7px 25px;
-    background-color: #03c8a8;
+    background-color: #3b9efe;
     border: 1px solid black;
+    border-radius: 15px;
   }
 
   .form-admin {
