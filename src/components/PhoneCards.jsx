@@ -4,9 +4,9 @@ import axios from 'axios';
 import PhoneDetails from './PhoneDetails';
 import DeskFooter from './deskfooter';
 
-function PhonePage(props) {
+function PhoneCards(props) {
   const [phones, setPhones] = useState([]);
-  const [open, setOpen] = useState(true);
+  const [show, setShow] = useState(true);
   useEffect(() => {
     loadphones();
   }, []);
@@ -22,7 +22,7 @@ function PhonePage(props) {
   return (
     <div className="hiii" onClick={() => props.setOpen(true)}>
       <h4>Your First Phones Page</h4>
-      <div className="grid-container">
+      <div className="grid-container" onClick={() => props.setShow(false)}>
         {phones.map((phone) => (
           <Link to={`/phones/${phone._id}`} key={phone._id}>
             <div className="grid-item">
@@ -36,4 +36,4 @@ function PhonePage(props) {
   );
 }
 
-export default PhonePage;
+export default PhoneCards;

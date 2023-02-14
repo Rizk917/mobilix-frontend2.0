@@ -12,11 +12,10 @@ import PhoneCards from './PhoneCards';
 
 
 
-function PhonePage() {
+function PhonePage(props) {
   const [phones, setPhones] = useState([]);
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(true);
-
 
   useEffect(() => {
     loadphones();

@@ -46,7 +46,7 @@ function DeskHeader({ open, setOpen }) {
           <div className="navbar">
             <a href="#" onClick={drop}>Log-in</a>
             <a href="/" onClick={logOut} className="hidden">
-              Log-out 
+              Log-out
             </a>
           </div>
         </div>
